@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rancho&display=swap');
 
-.rancho-font {
-  font-family: "Rancho", cursive;
-}
-
 .raleway-font {
   font-family: "Raleway", sans-serif;
+}
+
+.rancho-font {
+  font-family: "Rancho", cursive;
 }
 
 @import "tailwindcss";
@@ -14,16 +14,22 @@
 
 
 a.active {
-    color: red;
-  }
-  a.pending {
-    color: blue;
-  }
- 
-  .bg-addCoffee{
-    background-image: url('bg-addCoffee.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
+  color: red;
+}
+
+a.pending {
+  color: blue;
+}
+
+.bg-addCoffee {
+  background-image: url('bg-addCoffee.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+.text-shadow-secondary {
+  text-shadow: 2px 2px 5px rgba(0, 5, 21, 0.6);
+}

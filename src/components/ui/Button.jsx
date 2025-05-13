@@ -11,7 +11,7 @@ const Button = ({
     let styles = 'px-4 py-1.5 rounded font-medium transition duration-200 focus:outline-none ';
 
     if (variant === 'primary') {
-        styles += 'bg-gradient-to-tl from-purple-700 via-indigo-700 to-indigo-600 text-white hover:bg-indigo-500';
+        styles += 'btn bg-[#D2B48C] hover:bg-[#b5926f] w-full';
     } else if (variant === 'secondary') {
         styles += 'bg-white text-indigo-700 hover:bg-indigo-100';
     } else if (variant === 'outline') {
