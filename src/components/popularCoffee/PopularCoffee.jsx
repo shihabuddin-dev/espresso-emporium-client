@@ -1,23 +1,44 @@
 import React from 'react';
 import { FaEdit, FaTrash, FaEye } from 'react-icons/fa';
+import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
 const PopularCoffee = ({ coffee }) => {
     const { _id, photo, name, category, price } = coffee;
 
-    const handleEdit = () => {
-        console.log("Edit coffee:", _id);
-        // navigate(`/update/${_id}`);
-    };
 
-    const handleDelete = () => {
+    const handleDelete = (_id) => {
         console.log("Delete coffee:", _id);
-        // confirm + delete logic here
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                // Call the delete API here
+                fetch(`http://localhost:3000/coffees/${_id}`, { method: "DELETE" })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+            }
+        });
     };
 
-    const handleViewDetails = () => {
-        console.log("View details of:", _id);
-        // navigate(`/coffee/${_id}`);
-    };
+
 
     return (
         <div className="bg-[#F5F4F1] rounded-lg p-4 shadow-md flex flex-col md:flex-row items-center gap-4">
@@ -35,13 +56,13 @@ const PopularCoffee = ({ coffee }) => {
 
             {/* Action Buttons */}
             <div className="flex md:flex-col gap-2 items-center">
-                <button onClick={handleViewDetails} className="btn btn-sm bg-[#3C393B] hover:bg-black text-white">
+                <Link to={`/details/${_id}`} className="btn btn-sm bg-[#3C393B] hover:bg-black text-white">
                     <FaEye />
-                </button>
-                <button onClick={handleEdit} className="btn btn-sm bg-[#D2B48C] hover:bg-[#b5926f] text-white">
+                </Link>
+                <Link to={`/updateCoffee/${_id}`} className="btn btn-sm bg-[#D2B48C] hover:bg-[#b5926f] text-white">
                     <FaEdit />
-                </button>
-                <button onClick={handleDelete} className="btn btn-sm bg-[#EA4744] hover:bg-red-600 text-white">
+                </Link>
+                <button onClick={() => handleDelete(_id)} className="btn btn-sm bg-[#EA4744] hover:bg-red-600 text-white">
                     <FaTrash />
                 </button>
             </div>
