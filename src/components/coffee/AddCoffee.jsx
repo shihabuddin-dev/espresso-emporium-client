@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Button from '../ui/Button';
+import Swal from 'sweetalert2';
 
 const AddCoffee = () => {
     const handleSubmit = e => {
@@ -8,7 +9,8 @@ const AddCoffee = () => {
         const form = e.target;
         const formData = new FormData(form)
         const newCoffee = Object.fromEntries(formData.entries())
-        console.log(newCoffee)
+
+        // add coffee to db
         fetch('http://localhost:3000/coffees', {
             method: 'POST',
             headers: {
@@ -18,11 +20,19 @@ const AddCoffee = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('New Coffee after add to db', data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Coffee Added!",
+                        text: "You successfully added new Coffee here!",
+                        icon: "success"
+                    });
+                    // form.reset()
+                }
             })
 
 
     }
+
 
     return (
         <div className="bg-addCoffee flex items-center justify-center p-4">
@@ -50,6 +60,12 @@ const AddCoffee = () => {
                         </label>
                         <input type="text" name='quantity' placeholder="Enter coffee Quantity" className="input input-bordered w-full focus:outline-none focus:border-[#D2B48C]" />
                     </div>
+                    <div className="form-control w-full">
+                        <label className="label pl-1 mb-1">
+                            <span className="label-text text-[#1F2937] font-semibold">Price (BDT)</span>
+                        </label>
+                        <input type="number" name='price' placeholder="Enter coffee taste" className="input input-bordered w-full focus:outline-none focus:border-[#D2B48C]" />
+                    </div>
 
                     <div className="form-control w-full">
                         <label className="label pl-1 mb-1">
@@ -58,12 +74,7 @@ const AddCoffee = () => {
                         <input type="text" name='supplier' placeholder="Enter coffee supplier" className="input input-bordered w-full focus:outline-none focus:border-[#D2B48C]" />
                     </div>
 
-                    <div className="form-control w-full">
-                        <label className="label pl-1 mb-1">
-                            <span className="label-text text-[#1F2937] font-semibold">Taste</span>
-                        </label>
-                        <input type="text" name='taste' placeholder="Enter coffee taste" className="input input-bordered w-full focus:outline-none focus:border-[#D2B48C]" />
-                    </div>
+
 
                     <div className="form-control w-full">
                         <label className="label pl-1 mb-1">

@@ -1,9 +1,11 @@
 import React from 'react';
+import PopularCoffees from '../../components/popularCoffee/PopularCoffees';
+
 
 const Home = () => {
     return (
         <div>
-            <p className='text-xl'>this is home</p>
+            <PopularCoffees />
         </div>
     );
 };
