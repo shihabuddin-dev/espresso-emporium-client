@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rancho&display=swap');
+
+.rancho-font {
+  font-family: "Rancho", cursive;
+}
+
+.raleway-font {
+  font-family: "Raleway", sans-serif;
+}
+
 @import "tailwindcss";
 @plugin "daisyui";
+
+
 
 a.active {
     color: red;
@@ -8,4 +20,10 @@ a.active {
     color: blue;
   }
  
-  
+  .bg-addCoffee{
+    background-image: url('bg-addCoffee.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }

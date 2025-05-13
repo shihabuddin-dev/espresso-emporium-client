@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import Root from "../layout/Root";
 import Home from "../pages/home/Home";
+import AddCoffee from "../components/coffee/AddCoffee";
+import UpdateCoffee from "../components/coffee/UpdateCoffee";
 
 const router = createBrowserRouter([
     {
@@ -8,27 +10,9 @@ const router = createBrowserRouter([
         Component: Root,
         children: [
             { index: true, Component: Home },
-            // { path: '/signin', Component: SignIn },
-            // { path: '/signup', Component: SignUp },
-            // { path: '/about', Component: About },
-            // { path: '/blogs', Component: Blogs },
-
-            // private routes 
-            
-            // {
-            //     path: '/profile',
-            //     element:
-            //         <PrivateRoutes>
-            //             <Profile />
-            //         </PrivateRoutes>
-            // },
-            // {
-            //     path: '/news',
-            //     element:
-            //         <PrivateRoutes>
-            //             <News />
-            //         </PrivateRoutes>
-            // },
+            {path: '/addCoffee', Component: AddCoffee },
+            {path: '/updateCoffee', Component: UpdateCoffee },
+          
         ]
     },
 ]);
