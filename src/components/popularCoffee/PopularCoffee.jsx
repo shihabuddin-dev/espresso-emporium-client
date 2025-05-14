@@ -3,12 +3,10 @@ import { FaEdit, FaTrash, FaEye } from 'react-icons/fa';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
-const PopularCoffee = ({ coffee }) => {
+const PopularCoffee = ({ coffee, coffees, setCoffees }) => {
     const { _id, photo, name, category, price } = coffee;
 
-
-    const handleDelete = (_id) => {
-        console.log("Delete coffee:", _id);
+    const handleDelete = (id) => {
 
         Swal.fire({
             title: "Are you sure?",
@@ -22,9 +20,12 @@ const PopularCoffee = ({ coffee }) => {
             if (result.isConfirmed) {
 
                 // Call the delete API here
-                fetch(`http://localhost:3000/coffees/${_id}`, { method: "DELETE" })
+                fetch(`http://localhost:3000/coffees/${id}`, { method: "DELETE" })
                     .then(res => res.json())
                     .then(data => {
+                        const remainingCoffees = coffees.filter(coffee => coffee._id !== id)
+                        setCoffees(remainingCoffees)
+
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -32,8 +33,8 @@ const PopularCoffee = ({ coffee }) => {
                                 icon: "success"
                             });
                         }
-                    })
 
+                    })
             }
         });
     };

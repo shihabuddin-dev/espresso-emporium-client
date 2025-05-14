@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router';
 import Button from '../../components/ui/Button';
+import Swal from 'sweetalert2';
 
 const UpdateCoffee = () => {
     const coffee = useLoaderData()
@@ -23,6 +24,13 @@ const UpdateCoffee = () => {
             .then(data => {
                 if (data.modifiedCount) {
                     console.log('updated coffee', data)
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Coffee Updated Successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             })
 

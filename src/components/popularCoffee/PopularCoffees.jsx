@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 import PopularCoffee from './PopularCoffee';
 import { FaCoffee } from 'react-icons/fa';
 
 const PopularCoffees = () => {
-    const coffees = useLoaderData()
+    const initialCoffees = useLoaderData()
+    const [coffees, setCoffees]=useState(initialCoffees)
 
 
     return (
@@ -21,7 +22,10 @@ const PopularCoffees = () => {
             <div className='grid md:grid-cols-2 gap-4 max-w-4xl mx-auto my-6 px-4 sm:px-0'>
                 {
                     coffees.map(coffee => <PopularCoffee
-                        key={coffee._id} coffee={coffee} />)
+                        key={coffee._id} 
+                        coffees={coffees}
+                        setCoffees={setCoffees}
+                        coffee={coffee} />)
                 }
 
             </div>
