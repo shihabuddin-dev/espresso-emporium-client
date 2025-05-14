@@ -26,6 +26,11 @@ a.pending {
     background-size: cover;
   background-repeat: no-repeat;
 }
+.bg-hero {
+  background-image: url('bg-hero.jpeg');
+    background-size: cover;
+      background-attachment: fixed;
+}
 
 .bg-addCoffee {
   background-image: url('bg-addCoffee.png');
