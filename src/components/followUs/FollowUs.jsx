@@ -15,14 +15,14 @@ const FollowUs = () => {
             <h2 className="text-center text-coffee-800 items-center mb-1">Follow Us Now</h2>
             <h2 className="rancho-font text-3xl md:text-4xl font-bold text-center text-[#331A15] text-shadow-primary ">Follow On Instagram</h2>
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 max-w-4xl mx-auto my-6 px-4 sm:px-0'>
-                <img src={cup1} className='w-full h-48 object-fit' alt="" />
-                <img src={cup2} className='w-full h-48 object-fit' alt="" />
-                <img src={cup3} className='w-full h-48 object-fit' alt="" />
-                <img src={cup4} className='w-full h-48 object-fit' alt="" />
-                <img src={cup5} className='w-full h-48 object-fit' alt="" />
-                <img src={cup6} className='w-full h-48 object-fit' alt="" />
-                <img src={cup7} className='w-full h-48 object-fit' alt="" />
-                <img src={cup8} className='w-full h-48 object-fit' alt="" />
+                <img src={cup1} className='w-full md:h-52 object-fit' alt="" />
+                <img src={cup2} className='w-full md:h-52 object-fit' alt="" />
+                <img src={cup3} className='w-full md:h-52 object-fit' alt="" />
+                <img src={cup4} className='w-full md:h-52 object-fit' alt="" />
+                <img src={cup5} className='w-full md:h-52 object-fit' alt="" />
+                <img src={cup6} className='w-full md:h-52 object-fit' alt="" />
+                <img src={cup7} className='w-full md:h-52 object-fit' alt="" />
+                <img src={cup8} className='w-full md:h-52 object-fit' alt="" />
             </div>
         </div>
     );
