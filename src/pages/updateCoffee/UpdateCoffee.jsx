@@ -40,10 +40,10 @@ const UpdateCoffee = () => {
 
         <div className="bg-addCoffee flex items-center justify-center p-4">
             <div className="bg-[#F4F3F0] p-8 rounded-lg max-w-4xl w-full shadow-md">
-                <Link to="/" className="text-[#374151] rancho-font hover:underline mb-4 inline-block text-shadow-secondary">
+                <Link to="/" className="text-[#331A15] rancho-font hover:underline mb-4 inline-block text-shadow-secondary">
                     ← Back to home
                 </Link>
-                <h2 className="rancho-font text-3xl md:text-4xl font-bold text-center text-[#374151] mb-4 text-shadow-secondary ">Update Coffee</h2>
+                <h2 className="rancho-font text-3xl md:text-4xl font-bold text-center text-[#331A15]  mb-4 text-shadow-primary ">Update Coffee</h2>
 
                 <form onSubmit={handleUpdateCoffee} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="form-control w-full">
