@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Button from '../ui/Button';
+import Button from '../../components/ui/Button';
 import Swal from 'sweetalert2';
 
 const AddCoffee = () => {
@@ -32,7 +32,6 @@ const AddCoffee = () => {
 
 
     }
-
 
     return (
         <div className="bg-addCoffee flex items-center justify-center p-4">

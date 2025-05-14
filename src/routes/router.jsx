@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router";
 import Root from "../layout/Root";
 import Home from "../pages/home/Home";
-import AddCoffee from "../components/coffee/AddCoffee";
-import UpdateCoffee from "../components/coffee/UpdateCoffee";
 import Spinner from "../components/ui/Spinner";
+import UpdateCoffee from "../pages/updateCoffee/UpdateCoffee";
+import AddCoffee from "../pages/addCoffee/AddCoffee";
+import DetailsCoffee from "../pages/detailsCoffee/DetailsCoffee";
 
 const router = createBrowserRouter([
     {
@@ -18,9 +19,15 @@ const router = createBrowserRouter([
             },
             { path: '/addCoffee', Component: AddCoffee },
             {
-                path: '/updateCoffee/:id', 
+                path: '/detailsCoffee/:id',
                 hydrateFallbackElement: <Spinner />,
-                loader: ({params}) => fetch(`http://localhost:3000/coffees/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:3000/coffees/${params.id}`),
+                Component: DetailsCoffee
+            },
+            {
+                path: '/updateCoffee/:id',
+                hydrateFallbackElement: <Spinner />,
+                loader: ({ params }) => fetch(`http://localhost:3000/coffees/${params.id}`),
                 Component: UpdateCoffee
             },
 

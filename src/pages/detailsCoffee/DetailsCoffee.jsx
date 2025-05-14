@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
 
-const UpdateCoffee = () => {
+const DetailsCoffee = () => {
     const coffee = useLoaderData()
     const { _id, photo, name, category, price } = coffee;
     return (
@@ -22,4 +22,4 @@ const UpdateCoffee = () => {
     );
 };
 
-export default UpdateCoffee;
+export default DetailsCoffee;

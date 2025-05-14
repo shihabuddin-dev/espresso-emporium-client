@@ -56,7 +56,7 @@ const PopularCoffee = ({ coffee }) => {
 
             {/* Action Buttons */}
             <div className="flex md:flex-col gap-2 items-center">
-                <Link to={`/details/${_id}`} className="btn btn-sm bg-[#3C393B] hover:bg-black text-white">
+                <Link to={`/detailsCoffee/${_id}`} className="btn btn-sm bg-[#3C393B] hover:bg-black text-white">
                     <FaEye />
                 </Link>
                 <Link to={`/updateCoffee/${_id}`} className="btn btn-sm bg-[#D2B48C] hover:bg-[#b5926f] text-white">
