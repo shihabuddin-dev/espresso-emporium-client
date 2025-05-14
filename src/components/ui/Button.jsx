@@ -15,7 +15,7 @@ const Button = ({
     } else if (variant === 'secondary') {
         styles += 'bg-white text-indigo-700 hover:bg-indigo-100';
     } else if (variant === 'outline') {
-        styles += 'border border-indigo-600 text-indigo-600 hover:bg-indigo-50';
+        styles += 'px-5 py-2 bg-transparent border-2 border-[#331A15] text-[#331A15] text-lg rounded-full hover:bg-[#331A15] hover:text-white focus:outline-none ';
     } else if (variant === 'danger') {
         styles += 'bg-red-600 text-white hover:bg-red-500';
     } else {

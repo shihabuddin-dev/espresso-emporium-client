@@ -21,6 +21,12 @@ a.pending {
   color: blue;
 }
 
+.bg-navbar {
+  background-image: url('bg-nav.jpg');
+    background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .bg-addCoffee {
   background-image: url('bg-addCoffee.png');
   background-size: cover;
@@ -32,9 +38,19 @@ a.pending {
 .bg-popular-coffee {
   background-image: url('bg-popular-coffee.png');
   background-size: cover;
-  /* background-attachment: fixed; */
 
 }
+.bg-footer{
+  background-image: url('bg-footer.jpg');
+  background-size: cover;
+
+}
+.bg-footer-bottom{
+  background-image: url('bg-footer-bottom.jpg');
+  background-size: cover;
+
+}
+
 .text-shadow-primary {
   text-shadow: 0 2px 6px rgba(0, 0, 21, 0.6);
 }

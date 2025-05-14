@@ -1,18 +1,19 @@
 import React from 'react';
 import { Outlet } from 'react-router';
-import Header from '../components/header/Header';
+import Navbar from '../components/navbar/Navbar';
+import Footer from '../components/footer/Footer';
 
 const Root = () => {
   return (
     <>
       <header>
-        <Header />
+        <Navbar />
       </header>
-      <main>
+      <main className='py-6'>
         <Outlet />
       </main>
       <footer>
-
+        <Footer />
       </footer>
     </>
   );

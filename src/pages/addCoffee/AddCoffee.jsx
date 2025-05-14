@@ -30,11 +30,10 @@ const AddCoffee = () => {
                 }
             })
 
-
     }
 
     return (
-        <div className="bg-addCoffee flex items-center justify-center p-4">
+        <div className="bg-addCoffee flex items-center justify-center py-8">
             <div className="bg-[#F4F3F0] p-8 rounded-lg max-w-4xl w-full shadow-md">
                 <Link to="/" className="text-[#331A15] rancho-font hover:underline mb-4 inline-block text-shadow-secondary">
                     ← Back to home
