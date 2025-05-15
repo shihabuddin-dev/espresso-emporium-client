@@ -6,6 +6,8 @@ import UpdateCoffee from "../pages/updateCoffee/UpdateCoffee";
 import AddCoffee from "../pages/addCoffee/AddCoffee";
 import DetailsCoffee from "../pages/detailsCoffee/DetailsCoffee";
 import NotFound from "../pages/404/NotFound";
+import SignUp from "../pages/signUp/SignUp";
+import SignIn from "../pages/signIn/SignIn";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
                 hydrateFallbackElement: <Spinner />,
                 loader: ({ params }) => fetch(`http://localhost:3000/coffees/${params.id}`),
                 Component: UpdateCoffee
+            },
+            {
+                path: '/signUp',
+                Component: SignUp
+            },
+            {
+                path: '/signIn',
+                Component: SignIn
             },
             {
                 path: '*',
