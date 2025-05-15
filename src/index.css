@@ -24,7 +24,6 @@ a.pending {
 .bg-navbar {
   background-image: url('bg-nav.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .bg-hero {
@@ -56,8 +55,12 @@ a.pending {
 .bg-footer-bottom {
   background-image: url('bg-footer-bottom.jpg');
   background-size: cover;
-
 }
+.bg-dashboard{
+  background-image: url('bg-dashboard.png');
+  background-size: cover;
+}
+
 
 .text-shadow-primary {
   text-shadow: 0 2px 6px rgba(0, 0, 21, 0.6);

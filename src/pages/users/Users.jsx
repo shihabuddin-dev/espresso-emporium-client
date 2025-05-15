@@ -6,17 +6,17 @@ const Users = () => {
   const initialUsers = useLoaderData();
   const [users, setUsers] = useState(initialUsers);
   return (
-    <div className="bg-addCoffee">
-      <div className="overflow-x-auto">
+    <div className="bg-dashboard">
+      <div className="overflow-x-auto max-w-4xl mx-auto">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
-              <th>No</th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th>Action</th>
+              <th>No.</th>
+              <th>User Info</th>
+              <th>Phone</th>
+              <th>Creation Date</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -26,6 +26,7 @@ const Users = () => {
                 key={user._id}
                 user={user}
                 i={i}
+                users={users}
                 setUsers={setUsers}
               />
             ))}

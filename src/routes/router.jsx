@@ -9,6 +9,8 @@ import NotFound from "../pages/404/NotFound";
 import SignUp from "../pages/signUp/SignUp";
 import SignIn from "../pages/signIn/SignIn";
 import Users from "../pages/users/Users";
+import UpdateUser from "../components/user/UpdateUser";
+import DetailsUser from "../components/user/Detailsuser";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,21 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:3000/users"),
         Component: Users,
       },
+      {
+        path: "/updateUser/:id",
+        hydrateFallbackElement: <Spinner />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/users/${params.id}`),
+        Component: UpdateUser,
+      },
+      {
+        path: "/detailsUser/:id",
+        hydrateFallbackElement: <Spinner />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/users/${params.id}`),
+        Component: DetailsUser,
+      },
+
       {
         path: "*",
         Component: NotFound,
