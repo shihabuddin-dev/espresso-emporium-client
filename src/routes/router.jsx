@@ -10,45 +10,45 @@ import SignUp from "../pages/signUp/SignUp";
 import SignIn from "../pages/signIn/SignIn";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        Component: Root,
-        children: [
-            {
-                index: true,
-                hydrateFallbackElement: <Spinner />,
-                loader: () => fetch('http://localhost:3000/coffees'),
-                Component: Home
-            },
-            { path: '/addCoffee', Component: AddCoffee },
-            {
-                path: '/detailsCoffee/:id',
-                hydrateFallbackElement: <Spinner />,
-                loader: ({ params }) => fetch(`http://localhost:3000/coffees/${params.id}`),
-                Component: DetailsCoffee
-            },
-            {
-                path: '/updateCoffee/:id',
-                hydrateFallbackElement: <Spinner />,
-                loader: ({ params }) => fetch(`http://localhost:3000/coffees/${params.id}`),
-                Component: UpdateCoffee
-            },
-            {
-                path: '/signUp',
-                Component: SignUp
-            },
-            {
-                path: '/signIn',
-                Component: SignIn
-            },
-            {
-                path: '*',
-                Component: NotFound
-            }
-
-        ]
-    },
-
+  {
+    path: "/",
+    Component: Root,
+    children: [
+      {
+        index: true,
+        hydrateFallbackElement: <Spinner />,
+        loader: () => fetch("http://localhost:3000/coffees"),
+        Component: Home,
+      },
+      { path: "/addCoffee", Component: AddCoffee },
+      {
+        path: "/detailsCoffee/:id",
+        hydrateFallbackElement: <Spinner />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/coffees/${params.id}`),
+        Component: DetailsCoffee,
+      },
+      {
+        path: "/updateCoffee/:id",
+        hydrateFallbackElement: <Spinner />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/coffees/${params.id}`),
+        Component: UpdateCoffee,
+      },
+      {
+        path: "/signUp",
+        Component: SignUp,
+      },
+      {
+        path: "/signIn",
+        Component: SignIn,
+      },
+      {
+        path: "*",
+        Component: NotFound,
+      },
+    ],
+  },
 ]);
 
 export default router;
