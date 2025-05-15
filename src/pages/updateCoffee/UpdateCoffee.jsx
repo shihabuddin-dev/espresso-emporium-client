@@ -13,7 +13,6 @@ const UpdateCoffee = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedCoffee = Object.fromEntries(formData.entries());
-    console.log(updatedCoffee);
     fetch(`http://localhost:3000/coffees/${_id}`, {
       method: "PUT",
       headers: {

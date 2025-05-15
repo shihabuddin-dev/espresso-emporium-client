@@ -22,18 +22,18 @@ a.pending {
 }
 
 .bg-navbar {
-  background-image: url('bg-nav.jpg');
+  background-image: url('/bg-nav.jpg');
   background-size: cover;
 }
 
 .bg-hero {
-  background-image: url('bg-hero.jpeg');
+  background-image: url('/bg-hero.jpeg');
   background-size: cover;
   background-attachment: fixed;
 }
 
 .bg-addCoffee {
-  background-image: url('bg-addCoffee.png');
+  background-image: url('/bg-addCoffee.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -41,23 +41,24 @@ a.pending {
 }
 
 .bg-popular-coffee {
-  background-image: url('bg-popular-coffee.png');
+  background-image: url('/bg-popular-coffee.png');
   background-size: cover;
 
 }
 
 .bg-footer {
-  background-image: url('bg-footer.jpg');
+  background-image: url('/bg-footer.jpg');
   background-size: cover;
 
 }
 
 .bg-footer-bottom {
-  background-image: url('bg-footer-bottom.jpg');
+  background-image: url('/bg-footer-bottom.jpg');
   background-size: cover;
 }
-.bg-dashboard{
-  background-image: url('bg-dashboard.png');
+
+.bg-dashboard {
+  background-image: url('/bg-dashboard.png');
   background-size: cover;
 }
 

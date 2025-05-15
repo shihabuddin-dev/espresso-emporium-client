@@ -53,8 +53,7 @@ const SignUp = () => {
             creationTime: result.user?.metadata?.creationTime,
             lastSignInTime: result.user?.metadata?.lastSignInTime,
           };
-          console.log(userProfile);
-          console.log(result);
+        
           // user profile info sent to db
           fetch("http://localhost:3000/users", {
             method: "POST",
