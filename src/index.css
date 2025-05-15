@@ -23,13 +23,14 @@ a.pending {
 
 .bg-navbar {
   background-image: url('bg-nav.jpg');
-    background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
 }
+
 .bg-hero {
   background-image: url('bg-hero.jpeg');
-    background-size: cover;
-      background-attachment: fixed;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .bg-addCoffee {
@@ -45,12 +46,14 @@ a.pending {
   background-size: cover;
 
 }
-.bg-footer{
+
+.bg-footer {
   background-image: url('bg-footer.jpg');
   background-size: cover;
 
 }
-.bg-footer-bottom{
+
+.bg-footer-bottom {
   background-image: url('bg-footer-bottom.jpg');
   background-size: cover;
 
@@ -59,6 +62,7 @@ a.pending {
 .text-shadow-primary {
   text-shadow: 0 2px 6px rgba(0, 0, 21, 0.6);
 }
+
 .text-shadow-secondary {
   text-shadow: 2px 2px 5px rgba(0, 0, 21, 0.6);
 }

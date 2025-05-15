@@ -33,11 +33,12 @@ const AddCoffee = () => {
     }
 
     return (
-        <div className="bg-addCoffee flex items-center justify-center py-8">
-            <div className="bg-[#F4F3F0] p-8 rounded-lg max-w-4xl w-full shadow-md">
-                <Link to="/" className="text-[#331A15] rancho-font hover:underline mb-4 inline-block text-shadow-secondary">
+        <div className="bg-addCoffee flex gap-2 flex-col items-center justify-center py-4">
+             <Link to="/" className="text-[#331A15] text-2xl rancho-font hover:underline mb-4 inline-block text-shadow-secondary">
                     ← Back to home
                 </Link>
+            <div className="bg-[#F4F3F0] p-8 rounded-lg max-w-4xl w-full shadow-md">
+               
                 <h2 className="rancho-font text-3xl md:text-4xl font-bold text-center text-[#331A15]  mb-4 text-shadow-secondary ">Add New Coffee</h2>
                 <p className="text-center text-gray-600 mb-6 md:px-6">
                     It is a long established fact that a reader will be distracted by the readable content of a page
