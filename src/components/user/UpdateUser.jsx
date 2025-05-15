@@ -9,27 +9,28 @@ const UpdateUser = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    // const form = e.target;
-    // const formData = new FormData(form);
-    // const updateUser = Object.fromEntries(formData.entries());
+    const form = e.target;
+    const formData = new FormData(form);
+    const updateUser = Object.fromEntries(formData.entries());
 
-    // fetch(`http://localhost:5173/users/${_id}`, {
-    //   method: "PUT",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(updateUser),
-    // }).then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.modifiedCount) {
-    //       Swal.fire({
-    //         icon: "success",
-    //         title: "User Updated Successful",
-    //         showConfirmButton: false,
-    //         timer: 1500,
-    //       });
-    //     }
-    //   });
+    fetch(`http://localhost:3000/users/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          Swal.fire({
+            icon: "success",
+            title: "User Updated Successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
 
   return (

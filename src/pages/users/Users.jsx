@@ -5,6 +5,13 @@ import User from "../../components/user/User";
 const Users = () => {
   const initialUsers = useLoaderData();
   const [users, setUsers] = useState(initialUsers);
+  if (users.length < 1) {
+    return (
+      <p className="text-xl md:text-3xl rancho-font text-center">
+        No User Found . . .
+      </p>
+    );
+  }
   return (
     <div className="bg-dashboard">
       <div className="overflow-x-auto max-w-4xl mx-auto">

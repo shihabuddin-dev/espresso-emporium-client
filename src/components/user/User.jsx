@@ -1,9 +1,12 @@
-import React from "react";
+import React, { use } from "react";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import { FirebaseAuthContext } from "../../provider/FirebaseAuthContext";
 
 const User = ({ user, i, users, setUsers }) => {
+  const { deleteSingleUser } = use(FirebaseAuthContext);
+
   const { _id, name, photo, address, phone, creationTime } = user || {};
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
@@ -26,6 +29,16 @@ const User = ({ user, i, users, setUsers }) => {
           .then((data) => {
             const remainingUser = users.filter((user) => user._id !== id);
             setUsers(remainingUser);
+
+            // delete user from firebase
+            deleteSingleUser()
+              .then(() => {
+                // User deleted.
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",

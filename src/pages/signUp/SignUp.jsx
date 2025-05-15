@@ -1,11 +1,13 @@
 import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Button from "../../components/ui/Button";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FirebaseAuthContext } from "../../provider/FirebaseAuthContext";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { createUser } = use(FirebaseAuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -64,6 +66,7 @@ const SignUp = () => {
             .then((res) => res.json())
             .then((data) => {
               if (data.insertedId) {
+                navigate(`${location?.state ? location.state : "/"}`);
                 Swal.fire({
                   title: "Success!",
                   text: "Your Account created Successfully",

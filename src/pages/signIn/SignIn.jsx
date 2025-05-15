@@ -1,10 +1,12 @@
 import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Button from "../../components/ui/Button";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FirebaseAuthContext } from "../../provider/FirebaseAuthContext";
 
 const SignIn = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { loginUser } = use(FirebaseAuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,10 +21,25 @@ const SignIn = () => {
     const formData = new FormData(form);
     const email = formData.get("email");
     const password = formData.get("password");
+
     loginUser(email, password)
-      .then((userCredential) => {
-        const currentUser = userCredential.user;
-        console.log(currentUser);
+      .then((result) => {
+        const signInInfo = {
+          email,
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
+        };
+        fetch("http://localhost:3000/users", {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(signInInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            navigate(`${location?.state ? location.state : "/"}`);
+            console.log("after update patch", data);
+          });
       })
       .then((error) => {
         console.log(error);

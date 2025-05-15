@@ -11,6 +11,7 @@ import SignIn from "../pages/signIn/SignIn";
 import Users from "../pages/users/Users";
 import UpdateUser from "../components/user/UpdateUser";
 import DetailsUser from "../components/user/Detailsuser";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,11 @@ const router = createBrowserRouter([
         path: "/users",
         hydrateFallbackElement: <Spinner />,
         loader: () => fetch("http://localhost:3000/users"),
-        Component: Users,
+        element: (
+          <PrivateRoutes>
+            <Users />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/updateUser/:id",

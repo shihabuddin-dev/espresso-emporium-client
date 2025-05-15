@@ -7,13 +7,13 @@ const PrivateRoutes = ({ children }) => {
     const { user, loading } = use(FirebaseAuthContext)
     const location = useLocation()
     
-    // when loading true show spinner 
+    // when loading true show spinner
     if (loading) {
         return <Spinner />
     }
     // if user don't found login so sent to login pages to login 
     if (!user) {
-        return <Navigate state={location?.pathname} to='/signin' />
+        return <Navigate state={location?.pathname} to='/signIn' />
     }
 
     return children
