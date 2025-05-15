@@ -8,6 +8,7 @@ import DetailsCoffee from "../pages/detailsCoffee/DetailsCoffee";
 import NotFound from "../pages/404/NotFound";
 import SignUp from "../pages/signUp/SignUp";
 import SignIn from "../pages/signIn/SignIn";
+import Users from "../pages/users/Users";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
       {
         path: "/signIn",
         Component: SignIn,
+      },
+      {
+        path: "/users",
+        hydrateFallbackElement: <Spinner />,
+        loader: () => fetch("http://localhost:3000/users"),
+        Component: Users,
       },
       {
         path: "*",

@@ -36,16 +36,22 @@ const SignUp = () => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const { email, password, ...userProfile } = Object.fromEntries(
+    const { email, password, ...restFormData } = Object.fromEntries(
       formData.entries()
     );
-    console.log(userProfile);
 
     // Check if all validations pass
     const allValid = validations.every((rule) => rule.isValid);
     if (allValid) {
       createUser(email, password)
         .then((result) => {
+          const userProfile = {
+            email,
+            ...restFormData,
+            creationTime: result.user?.metadata?.creationTime,
+            lastSignInTime: result.user?.metadata?.lastSignInTime,
+          };
+          console.log(userProfile);
           console.log(result);
           // user profile info sent to db
           fetch("http://localhost:3000/users", {
@@ -63,8 +69,8 @@ const SignUp = () => {
                   text: "Your Account created Successfully",
                   icon: "success",
                 });
-                form.reset();
               }
+              form.reset();
             });
         })
         .catch((error) => {
