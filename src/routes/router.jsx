@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Spinner />,
-        loader: () => fetch("http://localhost:3000/coffees"),
+        loader: () => fetch("https://espresso-emporium-server-psi.vercel.app/coffees"),
         Component: Home,
       },
       { path: "/addCoffee", Component: AddCoffee },
@@ -29,14 +29,14 @@ const router = createBrowserRouter([
         path: "/detailsCoffee/:id",
         hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/coffees/${params.id}`),
+          fetch(`https://espresso-emporium-server-psi.vercel.app/coffees/${params.id}`),
         Component: DetailsCoffee,
       },
       {
         path: "/updateCoffee/:id",
         hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/coffees/${params.id}`),
+          fetch(`https://espresso-emporium-server-psi.vercel.app/coffees/${params.id}`),
         Component: UpdateCoffee,
       },
       {
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       {
         path: "/users",
         hydrateFallbackElement: <Spinner />,
-        loader: () => fetch("http://localhost:3000/users"),
+        loader: () => fetch("https://espresso-emporium-server-psi.vercel.app/users"),
         element: (
           <PrivateRoutes>
             <Users />
@@ -61,14 +61,14 @@ const router = createBrowserRouter([
         path: "/updateUser/:id",
         hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/users/${params.id}`),
+          fetch(`https://espresso-emporium-server-psi.vercel.app/users/${params.id}`),
         Component: UpdateUser,
       },
       {
         path: "/detailsUser/:id",
         hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/users/${params.id}`),
+          fetch(`https://espresso-emporium-server-psi.vercel.app/users/${params.id}`),
         Component: DetailsUser,
       },
 

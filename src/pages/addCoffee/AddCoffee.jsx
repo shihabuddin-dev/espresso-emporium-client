@@ -11,7 +11,7 @@ const AddCoffee = () => {
         const newCoffee = Object.fromEntries(formData.entries())
 
         // add coffee to db
-        fetch('http://localhost:3000/coffees', {
+        fetch('https://espresso-emporium-server-psi.vercel.app/coffees', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

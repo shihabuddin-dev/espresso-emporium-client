@@ -18,7 +18,9 @@ const PopularCoffee = ({ coffee, coffees, setCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Call the delete API here
-        fetch(`http://localhost:3000/coffees/${id}`, { method: "DELETE" })
+        fetch(`https://espresso-emporium-server-psi.vercel.app/coffees/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             const remainingCoffees = coffees.filter(

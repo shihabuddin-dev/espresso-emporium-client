@@ -13,7 +13,7 @@ const UpdateUser = () => {
     const formData = new FormData(form);
     const updateUser = Object.fromEntries(formData.entries());
 
-    fetch(`http://localhost:3000/users/${_id}`, {
+    fetch(`https://espresso-emporium-server-psi.vercel.app/users/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

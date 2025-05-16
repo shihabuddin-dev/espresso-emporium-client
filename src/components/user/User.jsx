@@ -24,7 +24,7 @@ const User = ({ user, i, users, setUsers }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/users/${id}`, { method: "DELETE" })
+        fetch(`https://espresso-emporium-server-psi.vercel.app/users/${id}`, { method: "DELETE" })
           .then((res) => res.json())
           .then((data) => {
             const remainingUser = users.filter((user) => user._id !== id);
