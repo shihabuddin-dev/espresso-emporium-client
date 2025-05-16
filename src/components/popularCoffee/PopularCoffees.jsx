@@ -8,7 +8,7 @@ const PopularCoffees = () => {
     const initialCoffees = useLoaderData()
     const [coffees, setCoffees] = useState(initialCoffees)
 
-    return (
+return (
         <div className='bg-popular-coffee'>
             <div className="text-center space-y-2">
                 <h2 className="text-coffee-800 items-center"> --Sip & Savor-- </h2>
