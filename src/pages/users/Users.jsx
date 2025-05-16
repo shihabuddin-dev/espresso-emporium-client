@@ -28,10 +28,10 @@ const Users = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {users.map((user, i) => (
+            {users.map((userData, i) => (
               <User
-                key={user._id}
-                user={user}
+                key={userData._id}
+                userData={userData}
                 i={i}
                 users={users}
                 setUsers={setUsers}

@@ -1,12 +1,19 @@
-import React from "react";
+import React, { use } from "react";
 import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { FirebaseAuthContext } from "../../provider/FirebaseAuthContext";
 
 const PopularCoffee = ({ coffee, coffees, setCoffees }) => {
+  const navigate = useNavigate();
+
+  const { user } = use(FirebaseAuthContext);
   const { _id, photo, name, category, price } = coffee;
 
   const handleDelete = (id) => {
+    if (!user) {
+      return navigate("/signIn");
+    }
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",

@@ -21,23 +21,39 @@ const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Spinner />,
-        loader: () => fetch("https://espresso-emporium-server-psi.vercel.app/coffees"),
+        loader: () =>
+          fetch("https://espresso-emporium-server-psi.vercel.app/coffees"),
         Component: Home,
       },
-      { path: "/addCoffee", Component: AddCoffee },
+      {
+        path: "/addCoffee",
+        element: (
+          <PrivateRoutes>
+            <AddCoffee />
+          </PrivateRoutes>
+        ),
+      },
       {
         path: "/detailsCoffee/:id",
         hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
-          fetch(`https://espresso-emporium-server-psi.vercel.app/coffees/${params.id}`),
+          fetch(
+            `https://espresso-emporium-server-psi.vercel.app/coffees/${params.id}`
+          ),
         Component: DetailsCoffee,
       },
       {
         path: "/updateCoffee/:id",
         hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
-          fetch(`https://espresso-emporium-server-psi.vercel.app/coffees/${params.id}`),
-        Component: UpdateCoffee,
+          fetch(
+            `https://espresso-emporium-server-psi.vercel.app/coffees/${params.id}`
+          ),
+        element: (
+          <PrivateRoutes>
+            <UpdateCoffee />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/signUp",
@@ -50,7 +66,8 @@ const router = createBrowserRouter([
       {
         path: "/users",
         hydrateFallbackElement: <Spinner />,
-        loader: () => fetch("https://espresso-emporium-server-psi.vercel.app/users"),
+        loader: () =>
+          fetch("https://espresso-emporium-server-psi.vercel.app/users"),
         element: (
           <PrivateRoutes>
             <Users />
@@ -61,14 +78,18 @@ const router = createBrowserRouter([
         path: "/updateUser/:id",
         hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
-          fetch(`https://espresso-emporium-server-psi.vercel.app/users/${params.id}`),
+          fetch(
+            `https://espresso-emporium-server-psi.vercel.app/users/${params.id}`
+          ),
         Component: UpdateUser,
       },
       {
         path: "/detailsUser/:id",
         hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
-          fetch(`https://espresso-emporium-server-psi.vercel.app/users/${params.id}`),
+          fetch(
+            `https://espresso-emporium-server-psi.vercel.app/users/${params.id}`
+          ),
         Component: DetailsUser,
       },
 

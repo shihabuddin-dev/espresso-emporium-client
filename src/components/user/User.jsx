@@ -4,10 +4,10 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { FirebaseAuthContext } from "../../provider/FirebaseAuthContext";
 
-const User = ({ user, i, users, setUsers }) => {
+const User = ({ userData, i, users, setUsers }) => {
   const { deleteSingleUser } = use(FirebaseAuthContext);
 
-  const { _id, name, photo, address, phone, creationTime } = user || {};
+  const { _id, name, photo, address, phone, creationTime } = userData || {};
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
     return date.toDateString();
@@ -24,7 +24,9 @@ const User = ({ user, i, users, setUsers }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://espresso-emporium-server-psi.vercel.app/users/${id}`, { method: "DELETE" })
+        fetch(`https://espresso-emporium-server-psi.vercel.app/users/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             const remainingUser = users.filter((user) => user._id !== id);

@@ -3,11 +3,13 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Button from "../../components/ui/Button";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FirebaseAuthContext } from "../../provider/FirebaseAuthContext";
+import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { loginUser } = use(FirebaseAuthContext);
+  const { loginUser, createUserWithGoogle, setUser } = use(FirebaseAuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -39,6 +41,12 @@ const SignIn = () => {
           .then((data) => {
             navigate(`${location?.state ? location.state : "/"}`);
             console.log("after update patch", data);
+            Swal.fire({
+              icon: "success",
+              title: "Sign In Success",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           });
       })
       .then((error) => {
@@ -46,6 +54,23 @@ const SignIn = () => {
       });
   };
 
+  const handleSingInWithGoogle = () => {
+    createUserWithGoogle()
+      .then((result) => {
+        const currentUser = result.user;
+        setUser(currentUser);
+        
+        Swal.fire({
+          icon: "success",
+          title: "Sign In Success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="bg-addCoffee">
       <div className="max-w-md mx-auto p-6 bg-white rounded shadow">
@@ -89,13 +114,22 @@ const SignIn = () => {
           <Button type="submit" className="w-full">
             Sign In
           </Button>
-          <p className="text-sm mt-4">
-            Don't have an account?{" "}
-            <Link to="/signUp" className="text-blue-600 underline">
-              Sign up
-            </Link>
-          </p>
         </form>
+        {/* Google */}
+        <Button
+          onClick={handleSingInWithGoogle}
+          variant="outline"
+          className="w-full mt-3"
+        >
+          <FcGoogle />
+          Login with Google
+        </Button>
+        <p className="text-sm mt-4">
+          Don't have an account?{" "}
+          <Link to="/signUp" className="text-blue-600 underline">
+            Sign up
+          </Link>
+        </p>
       </div>
     </div>
   );

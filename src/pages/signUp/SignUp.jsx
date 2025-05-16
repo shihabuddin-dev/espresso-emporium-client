@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const SignUp = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { createUser } = use(FirebaseAuthContext);
+  const { createUser,setUser } = use(FirebaseAuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -47,6 +47,7 @@ const SignUp = () => {
     if (allValid) {
       createUser(email, password)
         .then((result) => {
+          setUser(result)
           const userProfile = {
             email,
             ...restFormData,
