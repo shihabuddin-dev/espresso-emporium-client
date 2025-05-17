@@ -9,13 +9,13 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
-  deleteUser,
+  // deleteUser,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 
 const ContextProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
-  const singleUser = auth.currentUser;
+  // const singleUser = auth.currentUser;
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -58,9 +58,9 @@ const ContextProvider = ({ children }) => {
     };
   }, []);
 
-  const deleteSingleUser = () => {
-    deleteUser(singleUser);
-  };
+  // const deleteSingleUser = () => {
+  //   deleteUser(singleUser);
+  // };
 
   const userInfo = {
     user,
@@ -72,7 +72,7 @@ const ContextProvider = ({ children }) => {
     createUserWithGoogle,
     updateUser,
     resetPassword,
-    deleteSingleUser,
+    // deleteSingleUser,
   };
   return <FirebaseAuthContext value={userInfo}>{children}</FirebaseAuthContext>;
 };

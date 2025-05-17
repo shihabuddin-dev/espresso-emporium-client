@@ -1,11 +1,11 @@
-import React, { use } from "react";
+import React from "react";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
-import { FirebaseAuthContext } from "../../provider/FirebaseAuthContext";
+// import { FirebaseAuthContext } from "../../provider/FirebaseAuthContext";
 
 const User = ({ userData, i, users, setUsers }) => {
-  const { deleteSingleUser } = use(FirebaseAuthContext);
+  // const { deleteSingleUser } = use(FirebaseAuthContext);
 
   const { _id, name, photo, address, phone, creationTime } = userData || {};
   const formatDate = (dateStr) => {
@@ -33,13 +33,13 @@ const User = ({ userData, i, users, setUsers }) => {
             setUsers(remainingUser);
 
             // delete user from firebase
-            deleteSingleUser()
-              .then(() => {
-                // User deleted.
-              })
-              .catch((error) => {
-                console.log(error);
-              });
+            // deleteSingleUser()
+            //   .then(() => {
+            //     // User deleted.
+            //   })
+            //   .catch((error) => {
+            //     console.log(error);
+            //   });
 
             if (data.deletedCount) {
               Swal.fire({

@@ -59,7 +59,8 @@ const SignIn = () => {
       .then((result) => {
         const currentUser = result.user;
         setUser(currentUser);
-        
+        navigate(`${location?.state ? location.state : "/"}`);
+
         Swal.fire({
           icon: "success",
           title: "Sign In Success",
